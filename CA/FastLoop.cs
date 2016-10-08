@@ -21,7 +21,6 @@ namespace Engine
     }
     public class FastLoop
     {
-        public bool start = false;
         [System.Security.SuppressUnmanagedCodeSecurity]
         [DllImport("User32.dll", CharSet = CharSet.Auto)]
         public static extern bool PeekMessage(
@@ -40,7 +39,7 @@ namespace Engine
         }
         void OnApplicationEnterIdle(object sender, EventArgs e)
         {
-            while (IsAppStillIdle() && start) { _callback(_timer.GetElapsedTime()); }
+            while (IsAppStillIdle()) { _callback(_timer.GetElapsedTime()); }
         }
         private bool IsAppStillIdle()
         {

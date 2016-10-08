@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Stage = new Tao.Platform.Windows.SimpleOpenGlControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // Stage
@@ -43,26 +47,52 @@
             this.Stage.DepthBits = ((byte)(16));
             this.Stage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Stage.Location = new System.Drawing.Point(0, 0);
+            this.Stage.Margin = new System.Windows.Forms.Padding(2);
             this.Stage.Name = "Stage";
-            this.Stage.Size = new System.Drawing.Size(1285, 904);
+            this.Stage.Size = new System.Drawing.Size(1516, 899);
             this.Stage.StencilBits = ((byte)(0));
             this.Stage.TabIndex = 0;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 50;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1401, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1285, 904);
+            this.ClientSize = new System.Drawing.Size(1516, 899);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Stage);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private Tao.Platform.Windows.SimpleOpenGlControl Stage;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
